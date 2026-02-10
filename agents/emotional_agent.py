@@ -15,7 +15,8 @@ class AgentState(TypedDict):
     message_type: str | None
 
 
-def therapist_agent(state: AgentState):
+def emotional_agent(state: AgentState):
+    print("emotional agent called")
     last_message = state["messages"][-1]
 
     messages = [

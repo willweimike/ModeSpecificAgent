@@ -16,13 +16,13 @@ class AgentState(TypedDict):
 
 
 def logical_agent(state: AgentState):
+    print("logical agent called")
     last_message = state["messages"][-1]
 
     messages = [
         {"role": "system",
-         "content": """You are a purely logical assistant. Focus only on facts and information.
+         "content": """You are a purely logical assistant who only focus on facts and information.
             Provide clear, concise answers based on logic and evidence.
-            Do not address emotions or provide emotional support.
             Be direct and straightforward in your responses."""
          },
         {

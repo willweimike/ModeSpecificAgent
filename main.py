@@ -4,7 +4,7 @@ from langgraph.graph.message import add_messages
 from langchain.chat_models import init_chat_model
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
-from agents.therapist_agent import therapist_agent
+from agents.emotional_agent import emotional_agent
 from agents.logical_agent import logical_agent
 
 
@@ -55,7 +55,7 @@ graph_builder = StateGraph(AgentState)
 
 graph_builder.add_node("classifier", classify_message)
 graph_builder.add_node("router", router)
-graph_builder.add_node("emotional", therapist_agent)
+graph_builder.add_node("emotional", emotional_agent)
 graph_builder.add_node("logical", logical_agent)
 
 graph_builder.add_edge(START, "classifier")
@@ -73,13 +73,12 @@ graph_builder.add_edge("logical", END)
 graph = graph_builder.compile()
 
 
-def run_chatbot():
+def main():
     state = {"messages": [], "message_type": None}
 
     while True:
         user_input = input("Message: ")
-        if user_input == "exit":
-            print("Bye")
+        if user_input.lower() == "quit":
             break
 
         state["messages"] = state.get("messages", []) + [
@@ -94,4 +93,4 @@ def run_chatbot():
 
 
 if __name__ == "__main__":
-    run_chatbot()
+    main()
