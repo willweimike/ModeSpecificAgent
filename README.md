@@ -1,6 +1,6 @@
 # ModeSpecificAgent
 
-* **Multi-Agent Architecture:** A conversational AI system built using the LangChain and LangGraph frameworks to manage state and workflows between different nodes.
+* **Multi-Agent Architecture:** An agentic AI system built with LangChain and LangGraph frameworks to manage state and workflows between different nodes.
 * **Local LLM Integration:** Powered entirely by a local language model (`qwen3:8b`) running through Ollama, ensuring privacy and local execution.
 * **Dynamic Intent Classification:** Utilizes an intelligent routing system with structured LLM output (Pydantic) to classify user messages as either "emotional" or "logical" in real-time.
 * **Specialized Responders:**
